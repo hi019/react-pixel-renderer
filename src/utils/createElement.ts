@@ -1,20 +1,27 @@
 import PixelDisplay from "../components/PixelDisplay";
 import Text from "../components/Text";
 
-function createElement(
-    type: "ROOT" | "TEXT",
-    props: Record<string, unknown>,
-    root: PixelDisplay
-) {
-    console.log("createElement", type, props, root);
+let ROOT_NODE_INSTANCE: PixelDisplay | null = null;
+
+export function getHostContextNode(rootNode?: PixelDisplay) {
+    if (rootNode) {
+        return (ROOT_NODE_INSTANCE = rootNode);
+    } else {
+        return (ROOT_NODE_INSTANCE = new PixelDisplay());
+    }
+}
+
+export function createElement(type: string, props: Record<string, unknown>) {
+    console.log("createElement", type, props);
+
+    if (!ROOT_NODE_INSTANCE && type !== "ROOT") {
+        console.warn("createElement: No root node instance found");
+    }
 
     const COMPONENTS = {
         ROOT: () => new PixelDisplay(),
-        TEXT: () => new Text(root, props),
-        default: undefined,
+        TEXT: () => new Text(ROOT_NODE_INSTANCE!, props),
     };
 
-    return COMPONENTS[type]() || COMPONENTS.default;
+    return COMPONENTS[type as keyof typeof COMPONENTS]() || (() => undefined);
 }
-
-export { createElement };

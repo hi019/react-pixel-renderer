@@ -1,6 +1,6 @@
 import Reconciler from "react-reconciler";
 
-import { createElement } from "../utils/createElement.ts";
+import { createElement, getHostContextNode } from "../utils/createElement.ts";
 import { DefaultEventPriority } from "react-reconciler/constants.js";
 
 const PixelRenderer = Reconciler({
@@ -22,7 +22,7 @@ const PixelRenderer = Reconciler({
     createInstance(type, props, internalInstanceHandle) {
         console.log("createInstance", type, props, internalInstanceHandle);
 
-        return createElement(type, props, internalInstanceHandle);
+        return createElement(type, props);
     },
 
     createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
@@ -54,7 +54,9 @@ const PixelRenderer = Reconciler({
     },
 
     getRootHostContext(rootInstance) {
-        return null;
+        console.log("getRootHostContext", rootInstance);
+
+        return getHostContextNode(rootInstance);
     },
 
     getChildHostContext() {
@@ -139,7 +141,7 @@ const PixelRenderer = Reconciler({
             recyclableInstance,
         });
 
-        return createElement(type, newProps, instance.root);
+        return createElement(type, newProps);
     },
 
     createContainerChildSet(...args) {
