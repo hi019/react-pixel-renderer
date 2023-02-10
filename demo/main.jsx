@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import render from "./render";
-
-const TextEl = "TEXT";
+import { render, Text } from "../src";
 
 function App() {
     const [text, setText] = React.useState("Hello World");
@@ -13,7 +11,7 @@ function App() {
         return () => clearTimeout(interval);
     }, [setText]);
 
-    return <TextEl>{text}</TextEl>;
+    return <Text>{text}</Text>;
 }
 
 render(<App />);
