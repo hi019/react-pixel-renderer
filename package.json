@@ -7,20 +7,24 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "dev-pi": "vite-node demo/main.jsx"
+    "build-pi": "babel demo --out-dir build --extensions \".ts,.tsx,.jsx,.js\""
   },
   "dependencies": {
-    "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-devtools": "^4.27.1",
-    "react-reconciler": "^0.29.0",
-    "rpi-led-matrix": "^1.14.0",
-    "vite-node": "^0.28.4"
+    "rpi-led-matrix": "^1.14.0"
   },
   "resolutions": {
     "react-devtools-core": "4.14.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "prettier": "^2.8.4",
+    "react-reconciler": "^0.29.0",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-reconciler": "^0.28.2",

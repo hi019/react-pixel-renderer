@@ -9,9 +9,7 @@ export const init = () => {
             rows: 32,
             cols: 64,
         },
-        {
-            ...LedMatrix.defaultRuntimeOptions(),
-        }
+        LedMatrix.defaultRuntimeOptions()
     );
 };
 
