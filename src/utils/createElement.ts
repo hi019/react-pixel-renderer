@@ -1,5 +1,5 @@
-import PixelDisplay from "../components/PixelDisplay";
-import Text from "../components/Text";
+import PixelDisplay from "../components/PixelDisplay.js";
+import Text from "../components/Text.js";
 
 let ROOT_NODE_INSTANCE: PixelDisplay | null = null;
 

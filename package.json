@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-devtools": "^4.27.1",
-    "rpi-led-matrix": "^1.14.0"
+    "rpi-led-matrix": "^1.14.0",
+    "ts-node": "^10.9.1"
   },
   "resolutions": {
     "react-devtools-core": "4.14.0"
@@ -21,14 +22,14 @@
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
-    "prettier": "^2.8.4",
-    "react-reconciler": "^0.29.0",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-reconciler": "^0.28.2",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "prettier": "^2.8.4",
+    "react-reconciler": "^0.29.0",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
   }
