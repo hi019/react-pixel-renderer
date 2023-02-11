@@ -13,6 +13,7 @@ specifiers:
   react-devtools: ^4.27.1
   react-dom: ^18.2.0
   react-reconciler: ^0.29.0
+  rpi-led-matrix: ^1.14.0
   typescript: ^4.9.3
   vite: ^4.1.0
 
@@ -22,6 +23,7 @@ dependencies:
   react-devtools: 4.27.1
   react-dom: 18.2.0_react@18.2.0
   react-reconciler: 0.29.0_react@18.2.0
+  rpi-led-matrix: 1.14.0
 
 devDependencies:
   '@types/react': 18.0.27
@@ -443,6 +445,12 @@ packages:
       color-convert: 1.9.3
     dev: false
 
+  /bindings/1.5.0:
+    resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    dependencies:
+      file-uri-to-path: 1.0.0
+    dev: false
+
   /boolean/3.2.0:
     resolution: {integrity: sha512-d0II/GO9uf9lfUHH2BQsjxzRJZBdsjgsBiW4BvhWk/3qoKwQFjIDVN19PfX8F2D/r9PCMTtLWjYVCFrpeYUzsw==}
     dev: false
@@ -753,6 +761,10 @@ packages:
     resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
     dependencies:
       pend: 1.2.0
+    dev: false
+
+  /file-uri-to-path/1.0.0:
+    resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
     dev: false
 
   /fs-extra/8.1.0:
@@ -1116,6 +1128,10 @@ packages:
     hasBin: true
     dev: true
 
+  /node-addon-api/3.2.1:
+    resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
+    dev: false
+
   /normalize-url/4.5.1:
     resolution: {integrity: sha512-9UZCFRHQdNrfTpGg8+1INIg93B6zE0aXMVFkw1WFwvO4SlZywU6aLg5Of0Ap/PgcbSw4LNxvMWXMeugwMCX0AA==}
     engines: {node: '>=8'}
@@ -1370,6 +1386,15 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /rpi-led-matrix/1.14.0:
+    resolution: {integrity: sha512-z4Fo57l4DURkP3+JHxJHrJppO5nR3Lqz9GFr9Kp4IapIqCe+KMXnPI7em+q4v6iu67hDoXMZZ3QFZeHovgpNOg==}
+    engines: {node: '>=10.0.0'}
+    requiresBuild: true
+    dependencies:
+      bindings: 1.5.0
+      node-addon-api: 3.2.1
+    dev: false
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}

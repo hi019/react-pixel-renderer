@@ -13,7 +13,8 @@
     "react": "^18.2.0",
     "react-devtools": "^4.27.1",
     "react-dom": "^18.2.0",
-    "react-reconciler": "^0.29.0"
+    "react-reconciler": "^0.29.0",
+    "rpi-led-matrix": "^1.14.0"
   },
   "resolutions": {
     "react-devtools-core": "4.14.0"
