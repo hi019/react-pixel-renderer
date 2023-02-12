@@ -27,7 +27,6 @@ export const drawText = (text, row, col) => {
     const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
 
     matrix
-        .clear()
         .font(font)
         .brightness(100)
         .fgColor(0xffffff)
