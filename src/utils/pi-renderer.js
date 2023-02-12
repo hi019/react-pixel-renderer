@@ -21,7 +21,7 @@ export const clear = () => {
 export const drawText = (text, row, col) => {
     console.log("drawText", text, row, col);
 
-    const fontName = "helvR12";
+    const fontName = "6x10";
     const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
 
     matrix
