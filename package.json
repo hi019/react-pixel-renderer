@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "babel demo --out-dir build --extensions \".ts,.tsx,.jsx,.js\"",
-    "start": "node build/main.js"
+    "start": "node --loader=ts-node/esm build/main.js"
   },
   "dependencies": {
     "react": "^18.2.0",
