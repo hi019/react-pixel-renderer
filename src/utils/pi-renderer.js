@@ -14,7 +14,7 @@ export const init = () => {
 };
 
 export const clear = () => {
-    // matrix.clear();
+    matrix.clear();
 };
 
 export const drawText = (text, row, col) => {
@@ -26,13 +26,14 @@ export const drawText = (text, row, col) => {
     const fontName = "helvR12";
     const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
 
-    matrix
-        .clear()
-        .font(font)
-        .brightness(100)
-        .fgColor(0xffffff)
-        .drawText("Testing", 1, 1)
-        .sync();
+    // matrix
+    //     .clear()
+    //     .font(font)
+    //     .brightness(100)
+    //     .fgColor(0xffffff)
+    //     .drawText(text, x, y)
+    //     .sync();
+    matrix.clear().brightness(100).bgColor(0x00ff00).sync();
 };
 
 export const drawPixel = (x, y) => {
