@@ -1,4 +1,4 @@
-import { LedMatrix } from "rpi-led-matrix";
+import { Font, LedMatrix } from "rpi-led-matrix";
 
 let matrix;
 
@@ -23,8 +23,14 @@ export const drawText = (text, row, col) => {
     const x = col * 24;
     const y = (row + 1) * 24;
 
+    const font = new Font(
+        "helvR12",
+        `${process.cwd()}/node_modules/rpi-led-matrix/fonts/${fontName}.bdf`
+    );
+
     matrix
         .clear()
+        .font(font)
         .brightness(100)
         .fgColor(0xffffff)
         .drawText(text, x, y)
