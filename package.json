@@ -10,7 +10,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-devtools": "^4.27.1",
-    "rpi-led-matrix": "^1.14.0",
+    "rpi-led-matrix": "alexeden/rpi-led-matrix#master",
     "ts-node": "^10.9.1"
   },
   "resolutions": {
@@ -28,7 +28,6 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "prettier": "^2.8.4",
     "react-reconciler": "^0.29.0",
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "typescript": "^4.9.3"
   }
 }
