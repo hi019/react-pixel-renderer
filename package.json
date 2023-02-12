@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build-pi": "babel demo --out-dir build --extensions \".ts,.tsx,.jsx,.js\"",
-    "run": "node build/main.js"
+    "build": "babel demo --out-dir build --extensions \".ts,.tsx,.jsx,.js\"",
+    "start": "node build/main.js"
   },
   "dependencies": {
     "react": "^18.2.0",
