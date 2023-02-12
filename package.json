@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "babel demo --out-dir build --extensions \".ts,.tsx,.jsx,.js\"",
+    "build": "babel demo --out-dir build --copy-files",
     "start": "node --loader=ts-node/esm build/main.js"
   },
   "dependencies": {

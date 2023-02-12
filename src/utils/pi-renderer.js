@@ -24,10 +24,7 @@ export const drawText = (text, row, col) => {
     const y = (row + 1) * 24;
 
     const fontName = "helvR12";
-    const font = new Font(
-        fontName,
-        `${process.cwd()}/node_modules/rpi-led-matrix/fonts/${fontName}.bdf`
-    );
+    const font = new Font(fontName, `./${fontName}.bdf`);
 
     matrix
         .clear()
