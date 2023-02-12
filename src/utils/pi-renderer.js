@@ -27,12 +27,22 @@ export const drawText = (text, row, col) => {
     const fontName = "helvR12";
     const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
 
-    matrix
+    const matrix2 = new LedMatrix(
+        {
+            ...LedMatrix.defaultMatrixOptions(),
+            rows: 32,
+            cols: 64,
+            hardwareMapping: GpioMapping.AdafruitHat,
+        },
+        LedMatrix.defaultRuntimeOptions()
+    );
+
+    matrix2
         .clear()
         .font(font)
         .brightness(100)
         .fgColor(0xffffff)
-        .drawText(text, x, y)
+        .drawText("text", 1, 1)
         .sync();
 };
 
