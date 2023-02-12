@@ -32,7 +32,7 @@ export const drawText = (text, row, col) => {
         .font(font)
         .brightness(50)
         .fgColor(0xffffff)
-        .drawText("text", 1, 1)
+        .drawText(text, col, row)
         .sync();
 };
 
