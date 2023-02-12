@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { render, Text } from "../src/index.js";
 
 function App() {
-    const [text, setText] = React.useState("Hello World");
+    const [text, setText] = React.useState("");
 
     useEffect(() => {
         let interval = setInterval(() => {
