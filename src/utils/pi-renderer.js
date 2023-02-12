@@ -33,7 +33,7 @@ export const drawText = (text, row, col) => {
     //     .fgColor(0xffffff)
     //     .drawText(text, x, y)
     //     .sync();
-    matrix.clear().brightness(100).bgColor(0x00ff00).sync();
+    matrix.brightness(100).bgColor(0x00ff00).sync();
 };
 
 export const drawPixel = (x, y) => {
