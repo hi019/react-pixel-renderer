@@ -30,9 +30,9 @@ export const drawText = (text, row, col) => {
     matrix
         .clear()
         .font(font)
-        .brightness(100)
+        .brightness(50)
         .fgColor(0xffffff)
-        .drawText(text, x, y)
+        .drawText("text", 1, 1)
         .sync();
 };
 
