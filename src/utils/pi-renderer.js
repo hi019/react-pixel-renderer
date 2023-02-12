@@ -27,11 +27,11 @@ export const drawText = (text, row, col) => {
     const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
 
     matrix
+        .clear()
         .font(font)
-        .bgColor(0xffffff)
         .brightness(100)
         .fgColor(0xffffff)
-        .drawText(text, x, y)
+        .drawText("Testing", 1, 1)
         .sync();
 };
 
