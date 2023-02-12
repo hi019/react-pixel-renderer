@@ -23,8 +23,8 @@ export const drawText = (text, row, col) => {
     const x = col * 24;
     const y = (row + 1) * 24;
 
-    const fontName = "helvR12";
-    const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
+    // const fontName = "helvR12";
+    // const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
 
     // matrix
     //     .clear()
