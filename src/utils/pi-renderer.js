@@ -28,6 +28,7 @@ export const drawText = (text, row, col) => {
 
     matrix
         .font(font)
+        .bgColor(0xffffff)
         .brightness(100)
         .fgColor(0xffffff)
         .drawText(text, x, y)
