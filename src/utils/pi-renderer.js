@@ -3,8 +3,6 @@ import { Font, GpioMapping, LedMatrix } from "rpi-led-matrix";
 let matrix;
 
 export const init = () => {
-    console.log("in init");
-
     matrix = new LedMatrix(
         {
             ...LedMatrix.defaultMatrixOptions(),
@@ -34,7 +32,7 @@ export const drawText = (text, row, col) => {
         .font(font)
         .brightness(100)
         .fgColor(0xffffff)
-        .drawText("text", 1, 1)
+        .drawText(text, x, y)
         .sync();
 };
 
