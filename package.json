@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "build-pi": "babel demo --out-dir build --extensions \".ts,.tsx,.jsx,.js\""
+    "build-pi": "babel demo --out-dir build --extensions \".ts,.tsx,.jsx,.js\"",
+    "run": "node build/main.js"
   },
   "dependencies": {
     "react": "^18.2.0",
