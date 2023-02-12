@@ -14,7 +14,7 @@ export const init = () => {
 };
 
 export const clear = () => {
-    matrix.clear();
+    // matrix.clear();
 };
 
 export const drawText = (text, row, col) => {
