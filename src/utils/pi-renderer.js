@@ -3,6 +3,8 @@ import { Font, GpioMapping, LedMatrix } from "rpi-led-matrix";
 let matrix;
 
 export const init = () => {
+    console.log("in init");
+
     matrix = new LedMatrix(
         {
             ...LedMatrix.defaultMatrixOptions(),
@@ -27,17 +29,7 @@ export const drawText = (text, row, col) => {
     const fontName = "helvR12";
     const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
 
-    const matrix2 = new LedMatrix(
-        {
-            ...LedMatrix.defaultMatrixOptions(),
-            rows: 32,
-            cols: 64,
-            hardwareMapping: GpioMapping.AdafruitHat,
-        },
-        LedMatrix.defaultRuntimeOptions()
-    );
-
-    matrix2
+    matrix
         .clear()
         .font(font)
         .brightness(100)
