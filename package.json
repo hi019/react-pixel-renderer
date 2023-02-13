@@ -10,7 +10,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-devtools": "^4.27.1",
-    "rpi-led-matrix": "alexeden/rpi-led-matrix#master",
+    "rpi-led-matrix": "^1.14.0",
     "ts-node": "^10.9.1"
   },
   "resolutions": {
