@@ -2,10 +2,13 @@
   "name": "pixel-renderer",
   "version": "0.0.1",
   "type": "module",
-  "main": "build/index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "babel src --out-dir build --copy-files",
-    "start": "node --loader=ts-node/esm build/main.js"
+    "build": "tsup-node src --dts --format esm",
+    "dev": "pnpm build --watch"
   },
   "dependencies": {
     "react": "^18.2.0",

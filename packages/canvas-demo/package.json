@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "pixel-renderer": "workspace:pixel-renderer"
+    "pixel-renderer": "workspace:pixel-renderer",
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
