@@ -1,0 +1,15 @@
+{
+  "name": "pi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.tsx",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "pixel-renderer": "workspace:pixel-renderer",
+    "react": "^18.2.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,20 +1,28 @@
-import * as host from "../utils/canvas-renderer.js";
+interface Drawer {
+    drawText(text: string, x: number, y: number): void;
+    drawPixel(x: number, y: number): void;
+    init(): void;
+    clear(): void;
+}
 
 class PixelDisplay {
-    constructor() {
-        host.init();
+    host: Drawer;
+
+    constructor(host: Drawer) {
+        this.host = host;
+        this.host.init();
     }
 
     drawText(text: string, row: number, col: number) {
-        host.drawText(text, row, col);
+        this.host.drawText(text, row, col);
     }
 
     drawPixel(x: number, y: number) {
-        host.drawPixel(x, y);
+        this.host.drawPixel(x, y);
     }
 
     clear() {
-        host.clear();
+        this.host.clear();
     }
 }
 

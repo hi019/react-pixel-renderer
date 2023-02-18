@@ -12,12 +12,7 @@ class Text {
     appendChild(child: string) {
         console.log("appendChild", child);
 
-        // Add the string and render the text node
         this.root.drawText(child, 1, 1);
-    }
-
-    onRecoverableError() {
-        console.log("onRecoverableError");
     }
 
     appendAllChildren(...args: any[]) {

@@ -1,17 +1,19 @@
 import Reconciler from "react-reconciler";
 
-import { createElement, getHostContextNode } from "../utils/createElement.ts";
+import { createElement } from "../utils/createElement.ts";
 import { DefaultEventPriority } from "react-reconciler/constants.js";
 
 const PixelRenderer = Reconciler({
+    scheduleTimeout: setTimeout,
+    cancelTimeout: clearTimeout,
+
     appendInitialChild(parentInstance, child) {
         console.log("appendInitialChild", parentInstance, child);
 
-        // TODO look into this
         if (parentInstance.appendChild) {
             parentInstance.appendChild(child);
         } else {
-            // parentInstance.document = child;
+            throw new Error("Parent is not a container");
         }
     },
 
@@ -19,10 +21,10 @@ const PixelRenderer = Reconciler({
         console.log("appendAllChildren", ...args);
     },
 
-    createInstance(type, props, internalInstanceHandle) {
-        console.log("createInstance", type, props, internalInstanceHandle);
+    createInstance(type, props, rootContainer, hostContext) {
+        console.log("createInstance", type, props, rootContainer, hostContext);
 
-        return createElement(type, props);
+        return createElement(rootContainer, type, props);
     },
 
     createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
@@ -45,18 +47,14 @@ const PixelRenderer = Reconciler({
         return true;
     },
 
-    resetAfterCommit() {
-        // noop
-    },
+    resetAfterCommit() {},
 
-    resetTextContent(wordElement) {
-        // noop
-    },
+    resetTextContent(wordElement) {},
 
     getRootHostContext(rootInstance) {
         console.log("getRootHostContext", rootInstance);
 
-        return getHostContextNode(rootInstance);
+        return rootInstance;
     },
 
     getChildHostContext() {
@@ -71,30 +69,13 @@ const PixelRenderer = Reconciler({
         return DefaultEventPriority;
     },
 
-    getChildHostContextForEventComponent() {
-        // noop
-    },
+    getChildHostContextForEventComponent() {},
 
-    getChildHostContextForEventTarget() {
-        // noop
-    },
+    getChildHostContextForEventTarget() {},
 
-    shouldDeprioritizeSubtree() {
-        // noop
-    },
+    shouldDeprioritizeSubtree() {},
 
-    scheduleTimeout(...args) {
-        console.log("scheduleTimeout", args);
-        // noop
-    },
-
-    cancelTimeout() {
-        // noop
-    },
-
-    noTimeout() {
-        // noop
-    },
+    noTimeout() {},
 
     now: () => {},
 
@@ -104,21 +85,13 @@ const PixelRenderer = Reconciler({
     supportsPersistence: true,
     supportsHydration: false,
 
-    mountEventComponent() {
-        // noop
-    },
+    mountEventComponent() {},
 
-    updateEventComponent() {
-        // noop
-    },
+    updateEventComponent() {},
 
-    handleEventTarget() {
-        // noop
-    },
+    handleEventTarget() {},
 
-    getEventTargetChildElement() {
-        // noop
-    },
+    getEventTargetChildElement() {},
 
     cloneInstance(
         instance,
@@ -141,7 +114,8 @@ const PixelRenderer = Reconciler({
             recyclableInstance,
         });
 
-        return createElement(type, newProps);
+        // TODO will instance.rootContainer work
+        return createElement(instance.rootContainer, type, newProps);
     },
 
     createContainerChildSet(...args) {
@@ -155,8 +129,7 @@ const PixelRenderer = Reconciler({
 
     appendChildToContainerChildSet(parentChildset, child) {
         console.log("appendChildToContainerChildSet", parentChildset, child);
-        // TODO is this correct
-        // parentChildset.push(child);
+        parentChildset.push(child);
     },
 
     finalizeContainerChildren(...args) {
