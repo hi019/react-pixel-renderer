@@ -3,9 +3,9 @@ import PixelRenderer from "../reconciler/index.js";
 import { ConcurrentRoot } from "react-reconciler/constants.js";
 import { ReactElement } from "react";
 import { PixelDisplay } from "../components";
-import * as host from "../utils/canvas-renderer.js";
+import { Drawer } from "../components/PixelDisplay";
 
-async function render(element: ReactElement) {
+async function render(element: ReactElement, host: Drawer) {
     const container = new PixelDisplay(host);
 
     const node = PixelRenderer.createContainer(

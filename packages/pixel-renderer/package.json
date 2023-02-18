@@ -6,6 +6,11 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "tsup-node src --dts --format esm",
     "dev": "pnpm build --watch"

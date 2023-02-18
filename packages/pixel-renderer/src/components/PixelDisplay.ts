@@ -1,4 +1,4 @@
-interface Drawer {
+export interface Drawer {
     drawText(text: string, x: number, y: number): void;
     drawPixel(x: number, y: number): void;
     init(): void;
