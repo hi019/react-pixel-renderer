@@ -1,16 +1,16 @@
 {
-  "name": "reconciler-fun",
-  "private": true,
-  "version": "0.0.0",
+  "name": "pixel-renderer",
+  "version": "0.0.1",
   "type": "module",
+  "main": "build/index.js",
   "scripts": {
-    "build": "babel demo --out-dir build --copy-files",
+    "build": "babel src --out-dir build --copy-files",
     "start": "node --loader=ts-node/esm build/main.js"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-devtools": "^4.27.1",
-    "rpi-led-matrix": "alexeden/rpi-led-matrix#master",
+    "rpi-led-matrix": "^1.14.0",
     "ts-node": "^10.9.1"
   },
   "resolutions": {

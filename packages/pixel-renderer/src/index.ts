@@ -1,4 +1,4 @@
-import render from "./render/index.ts";
+import render from "./render/index";
 
 const Text = "TEXT";
 

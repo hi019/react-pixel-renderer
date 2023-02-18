@@ -12,10 +12,8 @@ class Text {
     appendChild(child: string) {
         console.log("appendChild", child);
 
-        if (typeof child === "string") {
-            // Add the string and render the text node
-            this.root.drawText(child, 1, 1);
-        }
+        // Add the string and render the text node
+        this.root.drawText(child, 1, 1);
     }
 
     onRecoverableError() {

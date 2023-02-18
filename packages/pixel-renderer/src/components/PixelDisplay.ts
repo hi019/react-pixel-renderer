@@ -1,4 +1,4 @@
-import * as host from "../utils/pi-renderer.js";
+import * as host from "../utils/canvas-renderer.js";
 
 class PixelDisplay {
     constructor() {
