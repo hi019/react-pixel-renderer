@@ -16,11 +16,11 @@ export const clear = () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 };
 
-export const drawText = (text, row, col) => {
-    console.log("drawText", text, row, col);
+export const drawText = (text, row, col, color) => {
+    console.log("drawText", text, row, col, color);
 
     ctx.font = "24px Arial";
-    ctx.fillStyle = "black";
+    ctx.fillStyle = color;
     const x = col * 24;
     const y = (row + 1) * 24;
     ctx.fillText(text, x, y);

@@ -6,13 +6,8 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.js"
-    }
-  },
   "scripts": {
-    "build": "tsup-node src --dts --format esm",
+    "build": "tsup-node src --dts --format esm,cjs --external react --publicDir assets",
     "dev": "pnpm build --watch"
   },
   "dependencies": {

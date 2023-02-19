@@ -1,5 +1,8 @@
 {
 	"devDependencies": {
 		"tsup": "^6.6.3"
+	},
+	"dependencies": {
+		"rsync": "^0.6.1"
 	}
 }

@@ -12,7 +12,12 @@ class Text {
     appendChild(child: string) {
         console.log("appendChild", child);
 
-        this.root.drawText(child, 1, 1);
+        this.root.drawText(
+            child,
+            1,
+            1,
+            (this.props.color as string) || "white"
+        );
     }
 
     appendAllChildren(...args: any[]) {

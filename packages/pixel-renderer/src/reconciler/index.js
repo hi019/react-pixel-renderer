@@ -114,8 +114,7 @@ const PixelRenderer = Reconciler({
             recyclableInstance,
         });
 
-        // TODO will instance.rootContainer work
-        return createElement(instance.rootContainer, type, newProps);
+        return createElement(instance.root, type, newProps);
     },
 
     createContainerChildSet(...args) {

@@ -18,17 +18,19 @@ export const clear = () => {
     matrix.clear();
 };
 
-export const drawText = (text, row, col) => {
+export const drawText = (text, row, col, color) => {
     console.log("drawText", text, row, col);
 
     const fontName = "6x10";
-    const font = new Font(fontName, `${process.cwd()}/build/${fontName}.bdf`);
+    const font = new Font(fontName, `${process.cwd()}/${fontName}.bdf`);
+
+    console.log("color1", color);
 
     matrix
         .clear()
         .font(font)
         .brightness(50)
-        .fgColor(0xffffff)
+        .fgColor(color)
         .drawText(text, col, row)
         .sync();
 };

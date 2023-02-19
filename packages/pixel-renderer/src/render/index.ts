@@ -20,13 +20,6 @@ async function render(element: ReactElement, host: Drawer) {
     );
 
     PixelRenderer.updateContainer(element, node, null);
-
-    // PixelRenderer.injectIntoDevTools({
-    //     bundleType: 1,
-    //     version: "0.0.1",
-    //     rendererPackageName: "pixel-renderer",
-    //     findHostInstanceByFiber: PixelRenderer.findHostInstance,
-    // });
 }
 
 export default render;
