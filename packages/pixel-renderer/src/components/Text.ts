@@ -10,7 +10,7 @@ class Text {
     }
 
     appendChild(child: string) {
-        console.log("appendChild", child);
+        console.log("appendChild", child, this.props.color);
 
         this.root.drawText(
             child,

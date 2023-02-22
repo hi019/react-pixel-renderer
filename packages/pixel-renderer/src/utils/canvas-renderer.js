@@ -12,8 +12,7 @@ export const init = () => {
 };
 
 export const clear = () => {
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
 
 export const drawText = (text, row, col, color) => {
@@ -26,7 +25,7 @@ export const drawText = (text, row, col, color) => {
     ctx.fillText(text, x, y);
 };
 
-export const drawPixel = (x, y) => {
-    ctx.fillStyle = "white";
+export const drawPixel = (x, y, color) => {
+    ctx.fillStyle = color;
     ctx.fillRect(x, y, 1, 1);
 };

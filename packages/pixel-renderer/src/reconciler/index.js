@@ -6,6 +6,7 @@ import { DefaultEventPriority } from "react-reconciler/constants.js";
 const PixelRenderer = Reconciler({
     scheduleTimeout: setTimeout,
     cancelTimeout: clearTimeout,
+    now: Date.now,
 
     appendInitialChild(parentInstance, child) {
         console.log("appendInitialChild", parentInstance, child);
@@ -77,8 +78,6 @@ const PixelRenderer = Reconciler({
 
     noTimeout() {},
 
-    now: () => {},
-
     isPrimaryRenderer: false,
 
     supportsMutation: false,
@@ -135,8 +134,14 @@ const PixelRenderer = Reconciler({
         console.log("finalizeContainerChildren", args);
     },
 
-    replaceContainerChildren(...args) {
-        console.log("replaceContainerChildren", args);
+    replaceContainerChildren(container, newChildren) {
+        console.log("replaceContainerChildren", container, newChildren);
+        container.clear();
+        for (const child of newChildren) {
+            if (child.props.children) {
+                child.appendChild(child.props.children);
+            }
+        }
     },
 
     cloneHiddenInstance(...args) {
