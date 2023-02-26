@@ -1,5 +1,4 @@
-import { createElement } from "../utils/createElement.js";
-import PixelRenderer from "../reconciler/index.js";
+import PixelRenderer from "../reconciler";
 import { ConcurrentRoot } from "react-reconciler/constants.js";
 import { ReactElement } from "react";
 import { PixelDisplay } from "../components";

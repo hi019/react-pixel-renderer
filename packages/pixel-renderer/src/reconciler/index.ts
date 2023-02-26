@@ -1,31 +1,44 @@
 import Reconciler from "react-reconciler";
 
-import { createElement } from "../utils/createElement.ts";
 import { DefaultEventPriority } from "react-reconciler/constants.js";
+import {
+    PixelDisplay,
+    Widget,
+    UnknownProps,
+    getComponent,
+    ChildSet,
+} from "../components";
 
-const PixelRenderer = Reconciler({
+const HostConfig: Reconciler.HostConfig<
+    string,
+    UnknownProps,
+    PixelDisplay,
+    Widget,
+    any,
+    any,
+    any,
+    any,
+    any,
+    any,
+    ChildSet,
+    any,
+    any
+> = {
     scheduleTimeout: setTimeout,
     cancelTimeout: clearTimeout,
     now: Date.now,
 
     appendInitialChild(parentInstance, child) {
-        console.log("appendInitialChild", parentInstance, child);
-
-        if (parentInstance.appendChild) {
-            parentInstance.appendChild(child);
-        } else {
-            throw new Error("Parent is not a container");
-        }
+        return parentInstance.appendChild(child);
     },
 
-    appendAllChildren(...args) {
+    appendAllChildren(...args: any[]) {
         console.log("appendAllChildren", ...args);
     },
 
     createInstance(type, props, rootContainer, hostContext) {
-        console.log("createInstance", type, props, rootContainer, hostContext);
-
-        return createElement(rootContainer, type, props);
+        const { createInstance } = getComponent(type);
+        return createInstance(props, rootContainer);
     },
 
     createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
@@ -63,7 +76,8 @@ const PixelRenderer = Reconciler({
     },
 
     shouldSetTextContent(type, props) {
-        return false;
+        const { shouldSetTextContent } = getComponent(type);
+        return shouldSetTextContent(props);
     },
 
     getCurrentEventPriority() {
@@ -102,18 +116,14 @@ const PixelRenderer = Reconciler({
         keepChildren,
         recyclableInstance
     ) {
-        console.log("cloneInstance", {
-            instance,
-            updatePayload,
-            type,
-            oldProps,
-            newProps,
-            internalInstanceHandle,
-            keepChildren,
-            recyclableInstance,
-        });
+        const { createInstance } = getComponent(type);
+        const cloned = createInstance(newProps, instance.root);
 
-        return createElement(instance.root, type, newProps);
+        if (keepChildren) {
+            instance.setChildren(cloned.getChildren());
+        }
+
+        return cloned;
     },
 
     createContainerChildSet(...args) {
@@ -134,16 +144,15 @@ const PixelRenderer = Reconciler({
         console.log("finalizeContainerChildren", args);
     },
 
-    replaceContainerChildren(container, newChildren) {
-        console.log("replaceContainerChildren", container, newChildren);
-        container.clear();
-        for (const child of newChildren) {
-            if (child.props.children) {
-                child.appendChild(child.props.children);
-            }
+    replaceContainerChildren(container, children) {
+        console.log("replaceContainerChildren", container, children);
+        container.host.clear();
+        for (const child of children) {
+            child.draw();
         }
     },
 
+    // @ts-ignore
     cloneHiddenInstance(...args) {
         console.log("cloneHiddenInstance", args);
     },
@@ -155,6 +164,6 @@ const PixelRenderer = Reconciler({
     clearContainer(container) {
         console.log("clearContainer", container);
     },
-});
+};
 
-export default PixelRenderer;
+export default Reconciler(HostConfig);

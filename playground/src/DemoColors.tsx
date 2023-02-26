@@ -1,25 +1,21 @@
 import { Text } from "pixel-renderer";
 import { useEffect, useState } from "react";
 
-const allColors = [0xff0000, 0x00ff00, 0x0000ff];
+const allColors = ["red", "yellow", "pink", "blue"];
 
 function App() {
   const [color, setColor] = useState(allColors[0]);
 
   useEffect(() => {
-    const colors = [0xff0000, 0x00ff00, 0x0000ff];
     let i = 0;
 
     const interval = setInterval(() => {
+      setColor(allColors[i % 4]);
       i++;
-
-      setColor(colors[i % 3]);
     }, 1000);
-    return () => clearInterval(interval);
-  }, [setColor]);
+  }, []);
 
-  // @ts-ignore
-  return <Text color={color}>Wow</Text>;
+  return <Text color={color}>Hello!!!</Text>;
 }
 
 export default App;

@@ -1,8 +1,9 @@
 import {
     Font,
     GpioMapping,
-    LedMatrixInstance,
     LedMatrix,
+    LedMatrixInstance,
+    RuntimeFlag,
 } from "rpi-led-matrix";
 import Color from "color";
 
@@ -16,7 +17,10 @@ export const init = () => {
             cols: 64,
             hardwareMapping: GpioMapping.AdafruitHat,
         },
-        LedMatrix.defaultRuntimeOptions()
+        {
+            ...LedMatrix.defaultRuntimeOptions(),
+            dropPrivileges: RuntimeFlag.Off,
+        }
     );
 };
 
@@ -24,14 +28,10 @@ export const clear = () => {
     matrix.clear();
 };
 
-export const drawText = (
-    text: string,
-    row: number,
-    col: number,
-    color: string
-) => {
-    console.log("drawText", text, row, col);
+export const drawText = (text: string, x: number, y: number, color: string) => {
+    console.log("drawText", text, x, y);
 
+    // TODO make font configurable
     const fontName = "6x10";
     const font = new Font(fontName, `${process.cwd()}/${fontName}.bdf`);
     const colorVal = Color(color);
@@ -39,9 +39,9 @@ export const drawText = (
     matrix
         .clear()
         .font(font)
-        .brightness(50)
+        .brightness(100)
         .fgColor({ r: colorVal.red(), g: colorVal.green(), b: colorVal.blue() })
-        .drawText(text, col, row)
+        .drawText(text, x, y)
         .sync();
 };
 
@@ -52,3 +52,14 @@ export const drawPixel = (x: number, y: number, color: string) => {
         .setPixel(x, y)
         .sync();
 };
+
+export const stringDimensions = (text: string) => {
+    // TODO make font configurable
+    const fontName = "6x10";
+    const font = new Font(fontName, `${process.cwd()}/${fontName}.bdf`);
+
+    return { width: font.stringWidth(text), height: font.height() };
+};
+
+export const width = 64;
+export const height = 32;
