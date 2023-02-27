@@ -1,4 +1,4 @@
-import { Text } from "pixel-renderer";
+import { Text, Flex } from "pixel-renderer";
 import { useEffect, useState } from "react";
 
 const allColors = ["red", "yellow", "pink", "blue"];
@@ -13,9 +13,20 @@ function App() {
       setColor(allColors[i % 4]);
       i++;
     }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
-  return <Text color={color}>Hello!!!</Text>;
+  return (
+    <Flex
+      flexDir={"row"}
+      justifyContent={"space-between"}
+      alignItems={"center"}
+    >
+      <Text color={color}>A</Text>
+      <Text color={color}>B</Text>
+    </Flex>
+  );
 }
 
 export default App;

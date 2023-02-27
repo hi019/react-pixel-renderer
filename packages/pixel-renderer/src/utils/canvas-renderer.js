@@ -12,16 +12,16 @@ export const init = () => {
 };
 
 export const clear = () => {
+    console.log("Clearing");
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
 
-export const drawText = (text, row, col, color) => {
-    console.log("drawText", text, row, col, color);
+export const drawText = (text, x, y, color) => {
+    console.log("drawText", text, x, y, color);
 
     ctx.font = "24px Arial";
     ctx.fillStyle = color;
-    const x = col * 24;
-    const y = (row + 1) * 24;
     ctx.fillText(text, x, y);
 };
 
@@ -29,3 +29,16 @@ export const drawPixel = (x, y, color) => {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, 1, 1);
 };
+
+export const stringDimensions = (text) => {
+    const metrics = ctx.measureText(text);
+    // const fontHeight =
+    //     metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent;
+    const actualHeight =
+        metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+
+    return { width: metrics.width, height: actualHeight };
+};
+
+export const height = 500;
+export const width = 500;

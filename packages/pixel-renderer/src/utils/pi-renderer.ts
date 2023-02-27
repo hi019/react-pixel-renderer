@@ -37,7 +37,6 @@ export const drawText = (text: string, x: number, y: number, color: string) => {
     const colorVal = Color(color);
 
     matrix
-        .clear()
         .font(font)
         .brightness(100)
         .fgColor({ r: colorVal.red(), g: colorVal.green(), b: colorVal.blue() })
