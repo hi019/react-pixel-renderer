@@ -18,18 +18,20 @@ const stringToYoga = {
     },
     justifyContent: {
         center: Yoga.JUSTIFY_CENTER,
-        flexStart: Yoga.JUSTIFY_FLEX_START,
-        flexEnd: Yoga.JUSTIFY_FLEX_END,
-        spaceBetween: Yoga.JUSTIFY_SPACE_BETWEEN,
-        spaceAround: Yoga.JUSTIFY_SPACE_AROUND,
-        spaceEvenly: Yoga.JUSTIFY_SPACE_EVENLY,
+        "flex-start": Yoga.JUSTIFY_FLEX_START,
+        "flex-end": Yoga.JUSTIFY_FLEX_END,
+        "space-between": Yoga.JUSTIFY_SPACE_BETWEEN,
+        "space-around": Yoga.JUSTIFY_SPACE_AROUND,
+        "space-evenly": Yoga.JUSTIFY_SPACE_EVENLY,
     },
     alignItems: {
         center: Yoga.ALIGN_CENTER,
-        flexStart: Yoga.ALIGN_FLEX_START,
-        flexEnd: Yoga.ALIGN_FLEX_END,
+        "flex-start": Yoga.ALIGN_FLEX_START,
+        "flex-end": Yoga.ALIGN_FLEX_END,
         stretch: Yoga.ALIGN_STRETCH,
         baseline: Yoga.ALIGN_BASELINE,
+        "space-around": Yoga.ALIGN_SPACE_AROUND,
+        "space-between": Yoga.ALIGN_SPACE_BETWEEN,
     },
 };
 
@@ -120,6 +122,8 @@ class FlexWidget extends Widget {
         if (this.yogaNode.isDirty()) {
             this.yogaNode.calculateLayout();
         }
+
+        // console.log("align-items", this.yogaNode.getChildCount());
 
         for (const child of this.children) {
             child.draw();
