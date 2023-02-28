@@ -37,7 +37,7 @@ class TextWidget extends Widget {
             }
         }
 
-        const { width, height } = this.root.host.stringDimensions(
+        const { width, height } = this.root.driver.stringDimensions(
             this.props.children
         );
         this.yogaNode.setWidth(width);
@@ -61,11 +61,11 @@ class TextWidget extends Widget {
             this.yogaNode.calculateLayout();
         }
 
-        this.root.host.drawText(
+        this.root.driver.drawText(
             this.props.children,
             this.yogaNode.getComputedLeft(),
             this.yogaNode.getComputedTop(),
-            this.props.color || "white"
+            this.props.color || "blue"
         );
     }
 }

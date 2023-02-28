@@ -1,4 +1,4 @@
-export interface Drawer {
+export interface Driver {
     drawText(text: string, x: number, y: number, color: string): void;
     drawPixel(x: number, y: number, color: string): void;
     stringDimensions(text: string): { width: number; height: number };
@@ -10,11 +10,11 @@ export interface Drawer {
 }
 
 class PixelDisplay {
-    host: Drawer;
+    driver: Driver;
 
-    constructor(host: Drawer) {
-        this.host = host;
-        this.host.init();
+    constructor(driver: Driver) {
+        this.driver = driver;
+        this.driver.init();
     }
 }
 

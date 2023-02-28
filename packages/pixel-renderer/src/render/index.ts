@@ -2,10 +2,10 @@ import PixelRenderer from "../reconciler";
 import { ConcurrentRoot } from "react-reconciler/constants.js";
 import { ReactElement } from "react";
 import { PixelDisplay } from "../components";
-import { Drawer } from "../components/PixelDisplay";
+import { Driver } from "../components/PixelDisplay";
 
-async function render(element: ReactElement, host: Drawer) {
-    const container = new PixelDisplay(host);
+function render(element: ReactElement, driver: Driver) {
+    const container = new PixelDisplay(driver);
 
     const node = PixelRenderer.createContainer(
         container,

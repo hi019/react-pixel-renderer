@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev:browser": "HOST_ENV=browser vite",
+    "dev:browser": "vite",
     "dev:pi": "rollup -c rollup.config.js --watch --watch.onEnd 'pnpm sync'",
-    "build:browser": "HOST_ENV=browser tsc && vite build",
+    "build:browser": "tsc && vite build",
     "build:pi": "rollup -c rollup.config.js",
     "sync": "node ../sync.js"
   },
@@ -16,6 +16,7 @@
     "date-fns-tz": "^2.0.0",
     "pixel-renderer": "link:../packages/pixel-renderer",
     "react": "^18.2.0",
+    "rollup-plugin-inject-process-env": "^1.3.1",
     "rpi-led-matrix": "^1.14.0",
     "ts-node": "^10.9.1"
   },

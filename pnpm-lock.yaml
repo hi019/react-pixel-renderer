@@ -82,6 +82,7 @@ importers:
       pixel-renderer: link:../packages/pixel-renderer
       react: ^18.2.0
       rollup: ^3.17.1
+      rollup-plugin-inject-process-env: ^1.3.1
       rpi-led-matrix: ^1.14.0
       ts-node: ^10.9.1
       tslib: ^2.5.0
@@ -94,6 +95,7 @@ importers:
       date-fns-tz: 2.0.0_date-fns@2.29.3
       pixel-renderer: link:../packages/pixel-renderer
       react: 18.2.0
+      rollup-plugin-inject-process-env: 1.3.1
       rpi-led-matrix: 1.14.0
       ts-node: 10.9.1_tncu2ai53lzgmizdedur7lbibe
     devDependencies:
@@ -109,12 +111,12 @@ importers:
       '@rollup/plugin-wasm': 6.1.2_rollup@3.17.1
       '@types/node': 18.14.0
       '@types/react': 18.0.27
-      '@vitejs/plugin-react': 3.1.0_vite@4.1.2
+      '@vitejs/plugin-react': 3.1.0_vite@4.1.4
       nodemon: 2.0.20
       rollup: 3.17.1
       tslib: 2.5.0
       typescript: 4.9.5
-      vite: 4.1.2_@types+node@18.14.0
+      vite: 4.1.4_@types+node@18.14.0
       vite-node: 0.28.5_@types+node@18.14.0
 
 packages:
@@ -1093,8 +1095,8 @@ packages:
       '@babel/plugin-transform-react-jsx': 7.20.13_@babel+core@7.20.12
     dev: true
 
-  /@babel/plugin-transform-react-jsx-self/7.18.6_@babel+core@7.20.12:
-    resolution: {integrity: sha512-A0LQGx4+4Jv7u/tWzoJF7alZwnBDQd6cGLh9P+Ttk4dpiL+J5p7NSNv/9tlEFFJDq3kjxOavWmbm6t0Gk+A3Ig==}
+  /@babel/plugin-transform-react-jsx-self/7.21.0_@babel+core@7.20.12:
+    resolution: {integrity: sha512-f/Eq+79JEu+KUANFks9UZCcvydOOGMgF7jBrcwjHa5jTZD8JivnhCJYvmlhR/WTXBWonDExPoW0eO/CR4QJirA==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -2239,18 +2241,18 @@ packages:
       '@swc/core': 1.3.34
     dev: true
 
-  /@vitejs/plugin-react/3.1.0_vite@4.1.2:
+  /@vitejs/plugin-react/3.1.0_vite@4.1.4:
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.1.0-beta.0
     dependencies:
       '@babel/core': 7.20.12
-      '@babel/plugin-transform-react-jsx-self': 7.18.6_@babel+core@7.20.12
+      '@babel/plugin-transform-react-jsx-self': 7.21.0_@babel+core@7.20.12
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.1.2_@types+node@18.14.0
+      vite: 4.1.4_@types+node@18.14.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3436,6 +3438,12 @@ packages:
     dev: false
     optional: true
 
+  /magic-string/0.25.9:
+    resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
+    dependencies:
+      sourcemap-codec: 1.4.8
+    dev: false
+
   /magic-string/0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -3526,7 +3534,7 @@ packages:
       acorn: 8.8.2
       pathe: 1.1.0
       pkg-types: 1.0.2
-      ufo: 1.1.0
+      ufo: 1.1.1
     dev: true
 
   /ms/2.0.0:
@@ -3973,6 +3981,12 @@ packages:
     dev: false
     optional: true
 
+  /rollup-plugin-inject-process-env/1.3.1:
+    resolution: {integrity: sha512-kKDoL30IZr0wxbNVJjq+OS92RJSKRbKV6B5eNW4q3mZTFqoWDh6lHy+mPDYuuGuERFNKXkG+AKxvYqC9+DRpKQ==}
+    dependencies:
+      magic-string: 0.25.9
+    dev: false
+
   /rollup/3.17.1:
     resolution: {integrity: sha512-8RnSms6rNqHmZK+wiqgnPCqen+rRnUHXkciGDirh7B00g1rX1vpKbPDhuxCvAG2bburoI+W4Q9/PlUB/zYkiYA==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
@@ -4132,6 +4146,11 @@ packages:
     dependencies:
       whatwg-url: 7.1.0
     dev: true
+
+  /sourcemap-codec/1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
+    dev: false
 
   /sprintf-js/1.1.2:
     resolution: {integrity: sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==}
@@ -4366,8 +4385,8 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
 
-  /ufo/1.1.0:
-    resolution: {integrity: sha512-LQc2s/ZDMaCN3QLpa+uzHUOQ7SdV0qgv3VBXOolQGXTaaZpIur6PwUclF5nN2hNkiTRcUugXd1zFOW3FLJ135Q==}
+  /ufo/1.1.1:
+    resolution: {integrity: sha512-MvlCc4GHrmZdAllBc0iUDowff36Q9Ndw/UzqmEKyrfSzokTd9ZCy1i+IIk5hrYKkjoYVQyNbrw7/F8XJ2rEwTg==}
     dev: true
 
   /undefsafe/2.0.5:
@@ -4475,7 +4494,7 @@ packages:
       picocolors: 1.0.0
       source-map: 0.6.1
       source-map-support: 0.5.21
-      vite: 4.1.2_@types+node@18.14.0
+      vite: 4.1.4_@types+node@18.14.0
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -4486,8 +4505,8 @@ packages:
       - terser
     dev: true
 
-  /vite/4.1.2_@types+node@18.14.0:
-    resolution: {integrity: sha512-MWDb9Rfy3DI8omDQySbMK93nQqStwbsQWejXRY2EBzEWKmLAXWb1mkI9Yw2IJrc+oCvPCI1Os5xSSIBYY6DEAw==}
+  /vite/4.1.4_@types+node@18.14.0:
+    resolution: {integrity: sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:

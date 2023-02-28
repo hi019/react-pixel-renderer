@@ -147,7 +147,7 @@ const HostConfig: Reconciler.HostConfig<
     replaceContainerChildren(container, children) {
         console.log("replaceContainerChildren", container, children);
 
-        container.host.clear();
+        container.driver.clear();
 
         for (const child of children) {
             child.draw();
@@ -164,7 +164,7 @@ const HostConfig: Reconciler.HostConfig<
     },
 
     clearContainer(container) {
-        container.host.clear();
+        container.driver.clear();
 
         console.log("clearContainer", container);
     },

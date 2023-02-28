@@ -1,6 +1,13 @@
 import React from "react";
 import { render } from "pixel-renderer";
-import * as host from "pixel-renderer/dist/utils/canvas-renderer";
-import DemoColors from "./DemoColors";
+import DemoTime from "./DemoTime";
 
-render(<DemoColors />, host);
+async function main() {
+  const driver = await (process.env.DRIVER === "pi"
+    ? import("pixel-renderer/dist/utils/pi-driver")
+    : import("pixel-renderer/dist/utils/canvas-driver"));
+
+  render(<DemoTime />, driver.default);
+}
+
+main();

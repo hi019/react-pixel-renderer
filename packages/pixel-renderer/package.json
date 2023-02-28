@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "tsup-node src --dts --format esm,cjs --external react --publicDir assets",
-    "dev": "pnpm build --watch"
+    "dev": "rm -rf dist; pnpm build --watch"
   },
   "dependencies": {
     "color": "^4.2.3",

@@ -55,8 +55,8 @@ class FlexWidget extends Widget {
         this.root = root;
         this.yogaNode = yoga.Node.createDefault();
 
-        this.yogaNode.setWidth(this.root.host.width);
-        this.yogaNode.setHeight(this.root.host.height);
+        this.yogaNode.setWidth(this.root.driver.width);
+        this.yogaNode.setHeight(this.root.driver.height);
         this.yogaNode.setDisplay(Yoga.DISPLAY_FLEX);
     }
 
@@ -118,12 +118,9 @@ class FlexWidget extends Widget {
         if (!this.props) {
             return;
         }
-
         if (this.yogaNode.isDirty()) {
             this.yogaNode.calculateLayout();
         }
-
-        // console.log("align-items", this.yogaNode.getChildCount());
 
         for (const child of this.children) {
             child.draw();
